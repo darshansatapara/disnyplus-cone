@@ -1,12 +1,15 @@
 import * as React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Login from "./component/Login";
+import Header from "./component/Header";
 
 function App() {
+  
   return (
    
     <BrowserRouter>
+    <Header/>
      <Login/>
     </BrowserRouter>
 
