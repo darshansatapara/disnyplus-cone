@@ -3,24 +3,27 @@ import { auth, provider } from "../firebase";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { selectUserName, selectUserPhoto, setUserLoginDetails } from "../features/user/userSlice";
+import { useState } from "react";
 
 const Header = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const userName = useSelector(selectUserName);
+  // const userName = useSelector(selectUserName);
+  const [userName, setUserName] = useState(null);
   const userPhoto = useSelector(selectUserPhoto);
   // const userEmail = useSelector(selectUserEmail);
 
   const handleAuth = () => {
     auth.signInWithPopup(provider).then((result) => {
-      setUserLoginDetails(result.user);
-
+      // setUserLoginDetails(result.user);
+      setUser(result.user)
     }).catch((error) => {
       alert(error.message)
     });
   }
 
   const setUser = (user) => {
+    setUserName(user.displayName)
     dispatch(setUserLoginDetails({
       name: user.displayName,
       email: user.email,
