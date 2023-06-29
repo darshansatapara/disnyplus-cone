@@ -22,12 +22,11 @@ const Login = (props) => {
 };
 
 const Container = styled.section`
-
-  overflow: hidden;
+ overflow: hidden;
   display: flex;
-  /* flex-diraction: column; */
+  flex-direction: column;
   text-align: center;
-  /* hight: 100vh; */
+  height: 100vh;
 `;
 const Content = styled.div`
   margin-bottom: 10vw;
