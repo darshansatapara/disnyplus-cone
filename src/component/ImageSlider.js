@@ -74,6 +74,7 @@ const Carousel = styled(Slider)`
 
 const Wrap = styled.div`
   border-radius: 4px;
+  padding: 0 10px;
   cursor: pointer;
   position: relative;
 
