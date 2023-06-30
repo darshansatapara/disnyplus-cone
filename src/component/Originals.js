@@ -1,44 +1,22 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import { selectOriginal } from "../features/movie/movieSlice";
+import { useSelector } from "react-redux";
 const Originals = (props) => {
+  const movies = useSelector(selectOriginal);
   return (
     <Container>
-      <h4>Desney+ Originals</h4>
+      <h4>Disney+ Originals</h4>
       <Content>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LX.img"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LX.img"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LX.img"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-        <Wrap>
-          <Link to="/">
-            <img
-              src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AA11N2LX.img"
-              alt=""
-            />
-          </Link>
-        </Wrap>
-      
+        {movies &&
+          movies.map((movie, key) => (
+            <Wrap key={key}>
+              {movie.id}
+              <Link to={`/detail/` + movie.id}>
+                <img src={movie.cardImg} alt={movie.title} />
+              </Link>
+            </Wrap>
+          ))}
       </Content>
     </Container>
   );
@@ -57,7 +35,7 @@ const Content = styled.div`
   }
 `;
 
-const Wrap=styled.div`
+const Wrap = styled.div`
      padding-top: 56.25%;
      border-radius: 10px;
      box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
