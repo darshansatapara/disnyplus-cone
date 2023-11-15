@@ -19,7 +19,7 @@ const ImgSlider = (props) => {
         <a>
           <img src="/images/slider-badging.jpg" alt="" />
         </a>
-      </Wrap>
+      </Wrap> 
       <Wrap>
         <a>
           <img src="/images/slider-badag.jpg" alt="" />
